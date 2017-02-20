@@ -1,0 +1,8 @@
+{{#amenitiesGroups}}
+    <div class="close js-collapse-button"><span></span><span>{{name}}</span></div>
+    <div>
+    {{#amenities}}
+        <div><input type="checkbox" value="{{id}}" class="js-amenity-checkbox"> {{name}}</div>
+    {{/amenities}}
+    </div>
+{{/amenitiesGroups}}

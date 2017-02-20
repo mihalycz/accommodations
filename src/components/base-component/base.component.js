@@ -56,4 +56,23 @@ export default class BaseComponent {
             container: this.$container
         }
     }
+
+    toggleElementClass ($element, condition, trueClass, falseClass) {
+        if ($element && $element.length) {
+            if (condition) {
+                $element.removeClass(falseClass);
+                $element.addClass(trueClass);
+            } else {
+                $element.removeClass(trueClass);
+                $element.addClass(falseClass);
+            }
+        }
+    }
+
+    getParentByClass ($element, className) {
+        if (!$element.hasClass(className)) {
+            $element = $element.parent(className);
+        }
+        return $element;
+    }
 }

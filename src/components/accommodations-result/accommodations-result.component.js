@@ -52,7 +52,9 @@ export default class AccommodationsResult extends BaseComponent{
 
     setOffersCount (accommodations) {_.set(this.viewModel, 'offersCount', accommodations.length);
         let len = accommodations.length;
-        this.$offersCount.text(len ? `${accommodations.length} offer${len > 1 ? 's' : ''}` : '');
+        if (this.$offersCount && this.$offersCount.length) {
+            this.$offersCount.text(len ? `${accommodations.length} offer${len > 1 ? 's' : ''}` : '');
+        }
     }
 }
 

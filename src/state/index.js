@@ -25,7 +25,13 @@ export default {
         { id: 18, type: 3, name: 'coffee maker'},
         { id: 19, type: 3, name: 'freezer'},
         { id: 20, type: 3, name: 'cooking hob'},
-        { id: 21, type: 3, name: 'fridge'}
+        { id: 21, type: 3, name: 'fridge'},
+        { id: 22, type: 3, name: 'golden blender'},
+        { id: 23, type: 3, name: 'silver dishwasher'},
+        { id: 24, type: 3, name: 'bronze coffee maker'},
+        { id: 25, type: 3, name: 'mega freezer'},
+        { id: 26, type: 3, name: 'strait cooking hob'},
+        { id: 27, type: 3, name: 'little bit gay fridge'}
     ],
     accommodations: [
         {
@@ -79,7 +85,8 @@ export default {
     ],
     amenitiesFilter: [],
     filteredAccommodations: [],
-    resultType: 2
+    resultType: 2,
+    collapseType: 2
 }
 
 

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import appState from '../state/index';
-import { ADD_ACCOMMODATIONS_FILTER, REMOVE_ACCOMMODATION_FILTER, SET_ACCOMMODATION_RESULT_TYPE } from '../actions/index';
+import { ADD_ACCOMMODATIONS_FILTER, REMOVE_ACCOMMODATION_FILTER, SET_ACCOMMODATION_RESULT_TYPE, SET_CHECKBOXES_COLLAPSE_TYPE } from '../actions/index';
 
 function filterAccommodations (amenitiesFilter, accommodation) {
     return !amenitiesFilter.length || _.reduce(amenitiesFilter, (result, amenityFilter) => {
@@ -39,6 +39,12 @@ function toggleAccommodationFilter (state, action, isRemove) {
     return state;
 }
 
+function getFilteredAccommodations (state) {
+    let accommodations = state.accommodations;
+    let filteredAccommodations = state.filteredAccommodations;
+    return filteredAccommodations.length ? filteredAccommodations : accommodations;
+}
+
 const accommodationsFilter = (state = appState, action) => {
     switch (action.type) {
         case ADD_ACCOMMODATIONS_FILTER:
@@ -47,12 +53,19 @@ const accommodationsFilter = (state = appState, action) => {
             return toggleAccommodationFilter (state, action, true);
         case SET_ACCOMMODATION_RESULT_TYPE:
             let resultType = _.get(action, 'resultType');
-            let accommodations = state.accommodations;
-            let filteredAccommodations = state.filteredAccommodations;
             if (resultType) {
                 return Object.assign({}, state, {
                     resultType: resultType,
-                    filteredAccommodations: filteredAccommodations.length ? filteredAccommodations : accommodations
+                    filteredAccommodations: getFilteredAccommodations (state)
+                });
+            }
+            return state;
+        case SET_CHECKBOXES_COLLAPSE_TYPE:
+            let collapseType = _.get(action, 'collapseType');
+            if (collapseType) {
+                return Object.assign({}, state, {
+                    collapseType: collapseType,
+                    filteredAccommodations: getFilteredAccommodations (state)
                 });
             }
             return state;

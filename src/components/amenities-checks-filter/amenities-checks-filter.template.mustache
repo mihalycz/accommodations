@@ -1,8 +1,15 @@
 {{#amenitiesGroups}}
-    <div class="close js-collapse-button"><span></span><span>{{name}}</span></div>
+    <div class="js-collapse-button"><span></span><span>{{name}}</span></div>
     <div>
-    {{#amenities}}
-        <div><input type="checkbox" value="{{id}}" class="js-amenity-checkbox"> {{name}}</div>
-    {{/amenities}}
+        {{#amenities}}
+            <div class="js-amenity-page">
+                {{#.}}
+                    <div>
+                        <input type="checkbox" value="{{id}}" class="js-amenity-checkbox"> {{name}}
+                    </div>
+                {{/.}}
+            </div>
+            <br/>
+        {{/amenities}}
     </div>
 {{/amenitiesGroups}}

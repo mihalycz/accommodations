@@ -12,10 +12,20 @@ export default class AmenitiesService {
 
     static getAmenitiesGroups () {
         let groups = [];
+        const itemsPerPage = 6;
         _.each(appState.amenitiesTypes, (type) => {
+            let amenities = _.filter(appState.amenities, { type: _.get(type, 'id') });
+            let amenitiesPaged = [];
+            let amenitiesLen = amenities.length;
+            let index = 0;
+            while (index < amenitiesLen) {
+                let end = index + itemsPerPage;
+                amenitiesPaged.push( _.slice(amenities, index, end));
+                index = end;
+            }
             groups.push({
                 name: _.get(type, 'name'),
-                amenities:  _.filter(appState.amenities, { type: _.get(type, 'id') })
+                amenities: amenitiesPaged
             });
         });
         return groups;

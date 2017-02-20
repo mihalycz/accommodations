@@ -31,6 +31,7 @@ module.exports = {
         }),
         new webpack.NamedModulesPlugin(),
         new ExtractTextPlugin({ filename: '[name].styles.css', disable: false, allChunks: true })
-    ]
+    ],
+    devtool: '#inline-source-map',
 };
 

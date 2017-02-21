@@ -1,10 +1,12 @@
 const path = require('path');
 
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const parts = require('./webpack.parts');
 
-module.exports = {
+const mainConfig = {
     context: __dirname,
     entry: {
         app: './src/app-runner.js',
@@ -14,24 +16,33 @@ module.exports = {
             { test: /\.mustache$/, loader: 'mustache-loader' },
             { test: /\.html$/, loader: 'html-loader'},
             { test: /\.less$/, loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!less-loader' })},
-            { test: /\.jpe?g$|\.gif$|\.png$|\.svg$/, loader: "file-loader" }
+            { test: /\.jpe?g$|\.gif$|\.png$|\.svg$/, loader: "file-loader", options: {name: 'images/[hash].[ext]'} },
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
     },
-    resolve: {
-        extensions: [".webpack.js", ".web.js", ".js", ".html"]
-    },
     output: {
-        path: './build',
-        filename: "[name].bundle.js",
+        filename: "js/[name].bundle.js",
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'accomodations',
             filename: 'index.html'
         }),
-        new webpack.NamedModulesPlugin(),
-        new ExtractTextPlugin({ filename: '[name].styles.css', disable: false, allChunks: true })
-    ],
-    devtool: '#inline-source-map',
+        new ExtractTextPlugin({ filename: 'css/[name].styles.css', disable: false, allChunks: true })
+    ]
 };
+
+const devSetup = parts.devSetup();
+
+const prodSetup = parts.prodSetup();
+
+module.exports = function(env) {
+    if (env === 'production') {
+        return merge(mainConfig, prodSetup);
+    }
+
+    return merge(mainConfig, devSetup);
+};
+
+
 

@@ -4,7 +4,11 @@
   "description": "accomodations test module",
   "main": "index.js",
   "dependencies": {
+    "es6-promise": "^4.0.5",
+    "gmaps": "^0.4.24",
+    "google-maps": "^3.2.1",
     "jquery": "^3.1.1",
+    "jscrollpane": "^2.0.22",
     "lodash": "^4.17.4",
     "mustache": "^2.3.0",
     "reset-css": "^2.2.0"

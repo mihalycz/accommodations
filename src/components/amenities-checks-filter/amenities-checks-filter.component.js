@@ -38,9 +38,10 @@ export default class AmenitiesChecksFilter extends BaseComponent{
     onRenderComplete () {
         let $container = this.getComponentContainer ();
         let state = store.getState();
+        this.$labels = $container.find('label');
         this.$amenitiesCheckboxes = $container.find('.js-amenity-checkbox');
         this.$collapseButton = $container.find('.js-collapse-button');
-        this.$amenitiesCheckboxes.on('change', this.onCheckChange.bind(this));
+        this.$amenitiesCheckboxes.on('click', this.onCheckClick.bind(this));
         this.$collapseButton.on('click', this.onCollapseButtonClick.bind(this));
         this.toggleAllBottomCheckBoxes (_.get(state, 'accommodationsFilter.collapseType'));
     }
@@ -51,7 +52,7 @@ export default class AmenitiesChecksFilter extends BaseComponent{
         this.toggleBottomCheckBoxes ($collapseButton);
     }
 
-    onCheckChange (event) {
+    onCheckClick (event) {
         let $element = $(event.target);
         let amenityId = parseInt($element.val(), 10);
         let amenity = _.find(this.viewModel.amenities, { id: amenityId });
@@ -72,8 +73,6 @@ export default class AmenitiesChecksFilter extends BaseComponent{
             this.toggleBottomCheckBoxes ($collapseButton);
         });
     }
-
-
 
     toggleBottomCheckBoxes ($collapseButton) {
         if (this.isHasPages ($collapseButton)) {

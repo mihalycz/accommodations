@@ -20,7 +20,7 @@ function toggleAccommodationFilter (state, action, isRemove) {
                 amenitiesFilter = _.remove(amenitiesFilter, (amenityFilterItem) => {
                     return _.get(amenityFilterItem, 'id') !== amenityId;
                 });
-                return Object.assign({}, state, {
+                return _.assign({}, state, {
                     amenitiesFilter: amenitiesFilter,
                     filteredAccommodations: accommodations.filter(filterAccommodations.bind(this, amenitiesFilter))
                 });
@@ -28,7 +28,7 @@ function toggleAccommodationFilter (state, action, isRemove) {
         } else {
             if (!_.find(amenitiesFilter, { id: amenityId })) {
                 amenitiesFilter.push(amenity);
-                return Object.assign({}, state, {
+                return _.assign({}, state, {
                     amenitiesFilter: amenitiesFilter,
                     filteredAccommodations: accommodations.filter(filterAccommodations.bind(this, amenitiesFilter))
                 });
@@ -54,7 +54,7 @@ const accommodationsFilter = (state = appState, action) => {
         case SET_ACCOMMODATION_RESULT_TYPE:
             let resultType = _.get(action, 'resultType');
             if (resultType) {
-                return Object.assign({}, state, {
+                return _.assign({}, state, {
                     resultType: resultType,
                     filteredAccommodations: getFilteredAccommodations (state)
                 });
@@ -63,10 +63,10 @@ const accommodationsFilter = (state = appState, action) => {
         case SET_CHECKBOXES_COLLAPSE_TYPE:
             let collapseType = _.get(action, 'collapseType');
             if (collapseType) {
-                return Object.assign({}, state, {
+                return _.assign({}, state, {
                     collapseType: collapseType,
                     filteredAccommodations: getFilteredAccommodations (state)
-                });
+                })
             }
             return state;
         default:

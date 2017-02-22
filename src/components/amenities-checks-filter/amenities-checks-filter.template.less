@@ -2,14 +2,28 @@
 
 div[data-component=amenities_checks_filter] {
   >div:nth-of-type(odd) {
+    margin: 15px 0;
     .amenities-collapse-label
   }
   >div:nth-of-type(even) {
+    border-bottom: 1px solid #ebf0f2;
     >div {
-      //-webkit-column-count: 3;
-      //-moz-column-count: 3;
-      //column-count: 3;
+      .columns(30%, 3, 0, white, none);
+      >div {
+        .avoid-break-inside;
+        .amenities-check-boxes;
+        margin-top: 1px;
+      }
     }
+  }
+}
 
+@media (max-width: 1220px) {
+  div[data-component=amenities_checks_filter] {
+    >div:nth-of-type(even) {
+      >div {
+        .columns(50%, 2, 0, white, none);
+      }
+    }
   }
 }

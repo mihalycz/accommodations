@@ -16,6 +16,16 @@ export default class AmenitiesSearchInput extends BaseComponent{
         this.viewModel = viewModel;
         this.partialName = 'amenities_search_input';
         this.components.push(new AmenitiesButtonsFilter());
+        store.subscribe(this.onStoreChange.bind(this));
+    }
+
+    onStoreChange () {
+        let state = store.getState();
+        let amenitiesLength = _.get(state, 'accommodationsFilter.amenitiesFilter', []).length;
+        if (this.$magnifier && this.$magnifier.length) {
+            this.$magnifier[amenitiesLength ? 'hide' : 'show']();
+        }
+
     }
 
     onRenderComplete () {
@@ -24,12 +34,13 @@ export default class AmenitiesSearchInput extends BaseComponent{
         this.$searchresultItems = $container.find('.js-amenities-search-result-item');
         this.$searchResult = $container.find('.js-amenities-search-result');
         this.$searchContainer = $container.find('.js-amenities-search-state');
+        this.$magnifier = $container.find('.js-magnifier');
         this.$searchInput.on('keyup', this.onSearchInputKeyUp.bind(this));
         this.$searchresultItems.on('click', this.onSearchResultItemClick.bind(this));
         this.$searchContainer.on('click', this.onSearchContainerClick.bind(this));
         $(document).on('click', this.onDocumentClick.bind(this));
         this.focusInput ();
-        this.$searchResult[_.get(this.viewModel, 'amenitiesSearchResult', []).length ? 'show' : 'hide']();
+        this.showResult();
     }
 
     onSearchContainerClick () {
@@ -71,6 +82,15 @@ export default class AmenitiesSearchInput extends BaseComponent{
     onSearchAmenitySuccess (result) {
         this.setAmenitiesSearchResult (result);
         this.render();
+    }
+
+    showResult () {
+        let top = parseInt(this.$searchContainer.height(), 10);
+        let amenitiesSearchResultLen = _.get(this.viewModel, 'amenitiesSearchResult', []).length;
+        if (top) {
+            this.$searchResult.css({ top: (top + 26) + 'px' });
+        }
+        this.$searchResult[amenitiesSearchResultLen ? 'show' : 'hide']();
     }
 
     closeResult () {

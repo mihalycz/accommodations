@@ -1,3 +1,5 @@
+@import 'variables.less';
+
 .amenities-label {
   color: #67808d;
   font-size: 13px;
@@ -5,11 +7,38 @@
   line-height: 24px;
 }
 
+.amenities-check-boxes {
+  font-size: 13px;
+  color: #28373e;
+  input[type=checkbox] {
+    display: none;
+  }
+  label:before {
+    cursor: pointer;
+    display: inline-block;
+    content: "";
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 13px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 3px;
+    border: 1px solid @main-color-2;
+  }
+  input[type=checkbox]:checked + label:before {
+    content: "\2713";
+    background-color: @main-color-2;
+  }
+}
+
 .amenities-collapse-label {
   cursor: pointer;
   line-height: 18px;
   span:nth-of-type(1) {
     display: inline-block;
+    vertical-align: middle;
     width: 18px;
     height: 18px;
   }
@@ -28,3 +57,11 @@
     margin-left: 10px;
   }
 }
+
+.avoid-break-inside {
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+

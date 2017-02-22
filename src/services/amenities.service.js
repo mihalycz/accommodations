@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import Promise from 'es6-promise';
 import appState from '../state/index';
 
 export default class AmenitiesService {

@@ -5,7 +5,8 @@
             <div class="js-amenity-page">
                 {{#.}}
                     <div>
-                        <input type="checkbox" value="{{id}}" class="js-amenity-checkbox"> {{name}}
+                        <input type="checkbox" value="{{id}}" id="check_{{id}}" class="js-amenity-checkbox">
+                        <label for="check_{{id}}">{{name}}</label>
                     </div>
                 {{/.}}
             </div>

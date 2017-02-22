@@ -1,12 +1,23 @@
 <header>
     <h1>TEST</h1>
+    <span></span>
     <a href="#">List your property</a>
 </header>
 <main>
     <section>
+        <div>
+            <div class="js-result-type-tab" data-type="1">Map</div>
+            <div class="js-result-type-tab" data-type="2">Accommodations</div>
+        </div>
+        <div>
+            {{> amenities_buttons_filter}}
+            <span class="js-offers-count"></span>
+        </div>
+    </section>
+    <section class="js-scrollable">
         {{> amenities_form }}
     </section>
-    <section>
+    <section class="js-scrollable">
         {{> accommodations_result}}
     </section>
 </main>

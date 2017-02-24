@@ -1,3 +1,4 @@
+let gradientImage =  require('../images/gradient.png');
 export default {
     amenitiesTypes: [
         { id: 1, name: 'popular amenities' },
@@ -42,7 +43,8 @@ export default {
             price: 85,
             coordinates: [41.393592, 2.162570],
             amenities: [7, 10, 16, 18],
-            image: require('../images/flat1.png')
+            image: require('../images/flat1.png'),
+            gradient: gradientImage
         },
         {
             id: 2,
@@ -50,7 +52,8 @@ export default {
             price: 70,
             coordinates: [41.394195, 2.164844],
             amenities: [6, 12],
-            image: require('../images/flat2.png')
+            image: require('../images/flat2.png'),
+            gradient: gradientImage
         },
         {
             id: 3,
@@ -58,7 +61,8 @@ export default {
             price: 60,
             coordinates: [41.393732, 2.165551],
             amenities: [1, 7, 13, 15, 20],
-            image: require('../images/flat3.png')
+            image: require('../images/flat3.png'),
+            gradient: gradientImage
         },
         {
             id: 4,
@@ -66,7 +70,8 @@ export default {
             price: 75,
             coordinates: [41.392794, 2.164888],
             amenities: [2, 7, 11],
-            image: require('../images/flat4.png')
+            image: require('../images/flat4.png'),
+            gradient: gradientImage
         },
         {
             id: 5,
@@ -74,7 +79,8 @@ export default {
             price: 90,
             coordinates: [41.392876, 2.163260],
             amenities: [19],
-            image: require('../images/flat1.png')
+            image: require('../images/flat1.png'),
+            gradient: gradientImage
         },
         {
             id: 6,
@@ -82,7 +88,8 @@ export default {
             price: 150,
             coordinates: [41.394479, 2.163797],
             amenities: [1, 5, 6, 11, 13, 20],
-            image: require('../images/flat2.png')
+            image: require('../images/flat2.png'),
+            gradient: gradientImage
         },
     ],
     amenitiesFilter: [],

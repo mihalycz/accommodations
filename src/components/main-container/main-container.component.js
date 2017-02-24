@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import _ from 'lodash';
-import 'jscrollpane';
+import '../../vendors/m-custom-scrollbar/jquery.mCustomScrollbar.concat.min';
 import BaseComponent from '../base-component/base.component';
 import store from '../../stores/index';
 import { setAccommodationResultType } from '../../actions/index';
@@ -10,6 +10,8 @@ import AccommodationResult from '../accommodations-result/accommodations-result.
 import template from './main-container.template.mustache';
 import './main-container.template.less';
 import viewModel from './main-container.view-model';
+
+
 
 export default class MainContainer extends BaseComponent{
     constructor (container) {
@@ -39,7 +41,9 @@ export default class MainContainer extends BaseComponent{
             this.$resultTypeTab.filter(`[data-type='${typeId}']`).addClass('selected');
             store.dispatch(setAccommodationResultType(typeId));
         }
-        //this.$container.find('.js-scrollable').jScrollPane();
+        $('.js-scrollable').mCustomScrollbar({
+            theme: 'accommodations-scroll-theme'
+        });
     }
 
     onResultTypeTabClick (event) {

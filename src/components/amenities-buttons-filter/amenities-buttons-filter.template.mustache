@@ -1,3 +1,6 @@
 {{#amenities}}
-    <span>{{name}} <span class="js-remove-amenity" data-id="{{id}}"></span></span>
+    <div class="filter-hash-button">
+        <span class="filter-hash-button-element filter-hash-button-title">{{name}}</span>
+        <span class="js-remove-amenity filter-hash-button-element filter-hash-button-remove" data-id="{{id}}"></span>
+    </div>
 {{/amenities}}

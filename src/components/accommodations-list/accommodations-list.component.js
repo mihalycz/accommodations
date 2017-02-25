@@ -27,9 +27,7 @@ export default class AccommodationsList extends BaseComponent{
     onWindowResize () {
         this.$accommodationItems.each((index, item) => {
             let $item = $(item);
-            let width = parseInt($item.width());
-            let height = width * this.widthToHaightRatio;
-            $item.height(height);
+            this.setDependentHeight ($item, $item);
         });
     }
 

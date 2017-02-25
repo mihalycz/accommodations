@@ -2,7 +2,7 @@ import _ from 'lodash';
 import $ from 'jquery';
 
 export default class BaseComponent {
-    constructor ($container) {
+    constructor () {
         this.$container = null;
         this.template = null;
         this.viewModel = null;
@@ -74,5 +74,26 @@ export default class BaseComponent {
             $element = $element.parent(className);
         }
         return $element;
+    }
+
+    setDependentHeight ($item, $dependentItem = $item, correction) {
+        if ($item && $item.length && $dependentItem && $dependentItem.length) {
+            let width = parseInt($item.width());
+            let height = Math.floor(width * this.widthToHaightRatio) - (isNaN(correction) ? 0 : correction);
+            if ($item === $dependentItem) {
+                $item.height(height);
+            } else {
+                $dependentItem.height(height);
+            }
+        }
+    }
+
+    setDependentTopByHeight ($item, $dependentItem, correction) {
+        if ($item && $item.length && $dependentItem && $dependentItem.length) {
+            let height = parseInt($item.height());
+            if (!isNaN(height)) {
+                $dependentItem.css('top', height + (isNaN(correction) ? 0 : correction));
+            }
+        }
     }
 }

@@ -87,6 +87,8 @@ export default class AmenitiesChecksFilter extends BaseComponent{
                 this.isStoreDispatched = true;
                 store.dispatch(setCheckboxesCollapseType(isClosed ?  CLOSED_COLLAPSE_TYPE : OPENED_COLLAPSE_TYPE));
             }
+        } else {
+            $collapseButton.find('span').first().hide();
         }
     }
 

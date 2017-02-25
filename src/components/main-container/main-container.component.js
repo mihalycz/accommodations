@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import _ from 'lodash';
 import '../../vendors/m-custom-scrollbar/jquery.mCustomScrollbar.concat.min';
+import config from '../../config';
 import BaseComponent from '../base-component/base.component';
 import store from '../../stores/index';
 import { setAccommodationResultType } from '../../actions/index';
@@ -28,6 +29,7 @@ export default class MainContainer extends BaseComponent{
     onStoreChange () {
         let state = store.getState();
         this.setOffersCount (_.get(state, 'accommodationsFilter.filteredAccommodations', []));
+        this.setDependentTopByHeight (this.resultsHeader, this.$resultBar, config.headerHeight);
     }
 
     onRenderComplete () {
@@ -36,6 +38,8 @@ export default class MainContainer extends BaseComponent{
         let typeId = _.get(state, 'accommodationsFilter.resultType');
         this.$resultTypeTab = $container.find('.js-result-type-tab');
         this.$offersCount = $container.find('.js-offers-count');
+        this.resultsHeader = $container.find('.js-results-header');
+        this.$resultBar = $container.find('.js-result-bar');
         this.$resultTypeTab.on('click', this.onResultTypeTabClick.bind(this));
         if (typeId) {
             this.$resultTypeTab.filter(`[data-type='${typeId}']`).addClass('selected');

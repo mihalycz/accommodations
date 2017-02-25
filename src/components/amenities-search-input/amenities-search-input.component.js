@@ -20,16 +20,12 @@ export default class AmenitiesSearchInput extends BaseComponent{
     }
 
     onStoreChange () {
-        let state = store.getState();
-        let amenitiesLength = _.get(state, 'accommodationsFilter.amenitiesFilter', []).length;
-        if (this.$magnifier && this.$magnifier.length) {
-            this.$magnifier[amenitiesLength ? 'hide' : 'show']();
-        }
-
+        this.setMagnifierVisibility ();
     }
 
     onRenderComplete () {
         let $container = this.getComponentContainer ();
+        this.resultContainerTopDelay = 26;
         this.$searchInput = $container.find('.js-amenities-search-input');
         this.$searchresultItems = $container.find('.js-amenities-search-result-item');
         this.$searchResult = $container.find('.js-amenities-search-result');
@@ -41,6 +37,7 @@ export default class AmenitiesSearchInput extends BaseComponent{
         $(document).on('click', this.onDocumentClick.bind(this));
         this.focusInput ();
         this.showResult();
+        this.setMagnifierVisibility ();
     }
 
     onSearchContainerClick () {
@@ -84,12 +81,17 @@ export default class AmenitiesSearchInput extends BaseComponent{
         this.render();
     }
 
-    showResult () {
-        let top = parseInt(this.$searchContainer.height(), 10);
-        let amenitiesSearchResultLen = _.get(this.viewModel, 'amenitiesSearchResult', []).length;
-        if (top) {
-            this.$searchResult.css({ top: (top + 26) + 'px' });
+    setMagnifierVisibility () {
+        let state = store.getState();
+        let amenitiesLength = _.get(state, 'accommodationsFilter.amenitiesFilter', []).length;
+        if (this.$magnifier && this.$magnifier.length) {
+            this.$magnifier[amenitiesLength ? 'hide' : 'show']();
         }
+    }
+
+    showResult () {
+        let amenitiesSearchResultLen = _.get(this.viewModel, 'amenitiesSearchResult', []).length;
+        this.setDependentHeight (this.$searchContainer, this.$searchResult, this.resultContainerTopDelay);
         this.$searchResult[amenitiesSearchResultLen ? 'show' : 'hide']();
     }
 

@@ -6,7 +6,7 @@ export default class AmenitiesService {
     static getAmenities (query) {
         return new Promise((resolve) => {
             resolve(_.filter(appState.amenities, (amenity) => {
-                return _.startsWith(_.get(amenity, 'name'), _.toLower(query));
+                return _.startsWith(_.toLower(_.get(amenity, 'name')), _.toLower(query));
             }));
         });
     }

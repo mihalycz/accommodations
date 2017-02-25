@@ -51,6 +51,7 @@ main {
     position: absolute;
     right: 0;
     top: @header-height;
+    box-shadow: @box-shadow;
     .result-type-tab {
       .result-type-tab-item {
         width: 50%;
@@ -86,13 +87,22 @@ main {
       }
     }
   }
-
+  .mCS-accommodations-scroll-theme {
+    &.mCSB_scrollTools {
+      width: 0.8%;
+    }
+  }
   .filter-bar {
     .main-bar;
     left: 0;
     top: @header-height;
     padding-top: 36px;
-    box-shadow: 0 5px 27px 5px rgba(70, 72, 74, 0.12);
+    box-shadow: @box-shadow;
+    .mCS-accommodations-scroll-theme {
+      &.mCSB_scrollTools {
+        margin-right: 0.7%;
+      }
+    }
   }
   .result-bar  {
     .main-bar;

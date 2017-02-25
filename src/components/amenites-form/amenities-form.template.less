@@ -5,29 +5,41 @@ div[data-component=amenities_form] {
     float: left;
     overflow: hidden;
   }
-  >section:nth-of-type(1) {
+  .amenities-form-left-tab {
     >div {
       .amenities-collapse-label;
-      margin-left: 30px;
+      margin-left: 15%;
     }
     width: 20%;
   }
-  >section:nth-of-type(2) {
-    width: 80%;
+  .amenities-form-right-tab {
+    width: 78.5%;
     >div {
-      width: 95%;
-      margin: 0 auto;
+      width: 96.5%;
+      margin-right: 3.5%;
     }
   }
 }
 
-@media (max-width: 1220px) {
+@media (max-width: @tablet-point) {
   div[data-component=amenities_form] {
-    >section:nth-of-type(1) {
-      width: 30%;
+    .amenities-form-left-tab {
+      width: 10%;
     }
-    >section:nth-of-type(2) {
-      width: 70%;
+    .amenities-form-right-tab {
+      width: 88.5%;
+    }
+  }
+}
+
+@media (max-width: @tablet-point-left) {
+  div[data-component=amenities_form] {
+    .amenities-form-left-tab {
+      >div {
+        span:nth-of-type(2) {
+          display: none;
+        }
+      }
     }
   }
 }

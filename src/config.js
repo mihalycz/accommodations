@@ -1,3 +1,4 @@
 export default {
-    googleApiKey: ''
+    googleApiKey: '',
+    headerHeight: 60
 }

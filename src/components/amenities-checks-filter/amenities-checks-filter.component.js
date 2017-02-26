@@ -58,6 +58,7 @@ export default class AmenitiesChecksFilter extends BaseComponent{
         let amenity = _.find(this.viewModel.amenities, { id: amenityId });
         if (this.isReCheck) {
             this.isReCheck = false;
+            this.isStoreDispatched = true;
             if (amenity) {
                 store.dispatch(removeAccommodationFilter(amenity));
             } else {

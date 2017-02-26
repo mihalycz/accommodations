@@ -16,11 +16,6 @@ export default class AmenitiesSearchInput extends BaseComponent{
         this.viewModel = viewModel;
         this.partialName = 'amenities_search_input';
         this.components.push(new AmenitiesButtonsFilter());
-        store.subscribe(this.onStoreChange.bind(this));
-    }
-
-    onStoreChange () {
-        this.setMagnifierVisibility ();
     }
 
     onRenderComplete () {
@@ -37,7 +32,6 @@ export default class AmenitiesSearchInput extends BaseComponent{
         $(document).on('click', this.onDocumentClick.bind(this));
         this.focusInput ();
         this.showResult();
-        this.setMagnifierVisibility ();
     }
 
     onSearchContainerClick () {
@@ -79,14 +73,6 @@ export default class AmenitiesSearchInput extends BaseComponent{
     onSearchAmenitySuccess (result) {
         this.setAmenitiesSearchResult (result);
         this.render();
-    }
-
-    setMagnifierVisibility () {
-        let state = store.getState();
-        let amenitiesLength = _.get(state, 'accommodationsFilter.amenitiesFilter', []).length;
-        if (this.$magnifier && this.$magnifier.length) {
-            this.$magnifier[amenitiesLength ? 'hide' : 'show']();
-        }
     }
 
     showResult () {

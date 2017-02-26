@@ -65,7 +65,6 @@ const accommodationsFilter = (state = appState, action) => {
             if (collapseType) {
                 return _.assign({}, state, {
                     collapseType: collapseType,
-                    filteredAccommodations: getFilteredAccommodations (state)
                 })
             }
             return state;

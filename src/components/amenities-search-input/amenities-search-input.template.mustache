@@ -1,11 +1,11 @@
 <div class="js-amenities-search-container">
     <span>Amenities search</span>
-    <div class="js-amenities-search-state">
+    <div class="js-amenities-search-state amenities-search-state">
         <span class="js-magnifier"></span>
         {{> amenities_buttons_filter}}
         <input type="text" class="js-amenities-search-input" value="{{query}}" />
     </div>
-    <div class="js-amenities-search-result">
+    <div class="js-amenities-search-result amenities-search-result">
         {{#amenitiesSearchResult}}
             <div class="js-amenities-search-result-item" data-id="{{id}}">{{name}}</div>
         {{/amenitiesSearchResult}}

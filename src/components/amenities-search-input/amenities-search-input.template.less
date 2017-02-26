@@ -11,11 +11,12 @@ div[data-component=amenities_search_input] {
       .amenities-label;
     }
     position: relative;
-    >div:nth-of-type(1) {
+    .amenities-search-state {
       .amenities-search;
       line-height: 38px;
       box-shadow: 0 1px 18px 3px rgba(0, 0, 0, 0.07);
       padding: 0 12px;
+      margin-top: 5px;
       >span {
         margin-right: 5px;
         display: inline-block;
@@ -36,7 +37,7 @@ div[data-component=amenities_search_input] {
         }
       }
     }
-    >div:nth-of-type(2) {
+    .amenities-search-result {
       .amenities-search;
       display: none;
       position: absolute;

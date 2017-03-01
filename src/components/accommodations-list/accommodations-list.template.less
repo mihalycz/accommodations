@@ -8,7 +8,7 @@ div[data-component=accommodations_list] {
       position: relative;
       width: 45.3%;
       background-size: cover;
-      border-radius: 10px;
+      .rounded(@radius: 10px);
       .accommodation-item-element {
         display: inline-block;
         position: absolute;
@@ -18,22 +18,18 @@ div[data-component=accommodations_list] {
       .accommodation-item-title {
         width: 77%;
         left: 3%;
-        font-size: 16px;
-        font-weight: 600;
-        letter-spacing: 0.39px;
+        .amenities-font (16px, 600, @spacing: 0.39px);
       }
       .accommodation-item-price {
         >span {
           vertical-align: top;
-          font-weight: 400;
-          font-size: 14px;
-          letter-spacing: 4.5px;
+          .amenities-font (14px, 400, 4.5px);
           margin-top: 2px;
           display: inline-block;
         }
         width: 17%;
         right: 3%;
-        font-size: 24px;
+        .amenities-font (24px);
         text-align: right;
         font-weight: 400;
       }

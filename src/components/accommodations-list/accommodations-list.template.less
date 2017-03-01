@@ -2,7 +2,7 @@
 
 div[data-component=accommodations_list] {
   .accommodations {
-    margin-top: 30px;
+    margin-top: 35px;
     .accommodation-item {
       display: inline-block;
       position: relative;
@@ -12,23 +12,30 @@ div[data-component=accommodations_list] {
       .accommodation-item-element {
         display: inline-block;
         position: absolute;
-        bottom: 5.5%;
+        bottom: 5%;
         color: white;
       }
       .accommodation-item-title {
         width: 77%;
         left: 3%;
         font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.39px;
       }
       .accommodation-item-price {
         >span {
-          vertical-align: super;
-          font-size: 11px;
+          vertical-align: top;
+          font-weight: 400;
+          font-size: 14px;
+          letter-spacing: 4.5px;
+          margin-top: 2px;
+          display: inline-block;
         }
         width: 17%;
         right: 3%;
         font-size: 24px;
         text-align: right;
+        font-weight: 400;
       }
     }
     .accommodation-item:nth-of-type(odd) {
@@ -40,14 +47,17 @@ div[data-component=accommodations_list] {
   }
 }
 
-@media (max-width: @tablet-point) {
+@media (max-width: @desktop-point-right) {
   div[data-component=accommodations_list] {
     .accommodations {
       .accommodation-item {
         width: 93.7%;
-        .accommodation-item {
-          margin: 0 2.1% 30px 3.1%;
-        }
+      }
+      .accommodation-item:nth-of-type(odd) {
+        margin: 0 0 30px 3.1%;
+      }
+      .accommodation-item:nth-of-type(even) {
+        margin: 0 0 30px 3.1%;
       }
     }
   }

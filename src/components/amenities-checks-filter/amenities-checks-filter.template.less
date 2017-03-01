@@ -2,19 +2,26 @@
 
 div[data-component=amenities_checks_filter] {
   .amenities-groups-title {
-    margin: 30px 0;
-    .amenities-collapse-label
+    .amenities-collapse-label;
+    margin-left: 1px;
   }
   .amenities-groups {
     border-bottom: 1px solid #ebf0f2;
+    padding-bottom: 3px;
+    margin-top: 23px;
+    margin-bottom: 19px;
     .amenities-page {
       .amenities-check-box {
         display: inline-block;
-        width: 32%;
+        width: 33.4%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin-bottom: 24px;
+        margin-bottom: 22px;
+      }
+      .amenities-check-box:nth-of-type(3n+3) {
+        width: 31.7%;
+        margin-left: 0.2%;
       }
     }
   }
@@ -26,6 +33,26 @@ div[data-component=amenities_checks_filter] {
       .amenities-page {
         .amenities-check-box {
           width: 48%;
+        }
+        .amenities-check-box:nth-of-type(3n+3) {
+          width: 48%;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: @tablet-point-left) and (max-width: @desktop-point-left) {
+  div[data-component=amenities_checks_filter] {
+    .amenities-groups {
+      .amenities-page {
+        .amenities-check-box {
+          width: 30%;
+        }
+        .amenities-check-box:nth-of-type(3n+3) {
+          width: 30%;
+          margin-left: 0;
         }
       }
     }

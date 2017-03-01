@@ -4,24 +4,24 @@ header {
   .base-settings;
   width: 100%;
   position:absolute;
-  left:0;
-  top:0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
-  line-height: @header-height;
-  padding: 0 30px;
+  line-height: 57px;
   z-index: 100;
   background-color: white;
   .header-title {
     float: left;
     color: @main-color-2;
-    font-size: 34px;
-    font-weight: 700;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    margin-left: 27.5px;
   }
   .header-title-logo {
     width: 30px;
     height: 32px;
     display: inline-block;
     vertical-align: middle;
+    margin-left: 2.5px;
     background: no-repeat url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAgCAYAAAAFQMh/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1MkJDRTY3Rjg1QzExRTY4RDRDRURCMEYxRTg4QjQxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1MkJDRTY4Rjg1QzExRTY4RDRDRURCMEYxRTg4QjQxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjUyQkNFNjVGODVDMTFFNjhENENFREIwRjFFODhCNDEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjUyQkNFNjZGODVDMTFFNjhENENFREIwRjFFODhCNDEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz458ZarAAADxklEQVR42qxXa0iTURh+tRnqdObWTDdzK4vAK1SCSWqQYFiZpZRQFEFS1A/rR1AR0Y+ooECKLgQSVAj2q3s/+hHUbxc1Ny9FOMFsm9fN3Vyz9Z7tfB9nn7rvTHvhYec9l+/Ze85z3nNOUjgcBsFaL3S04087LN8qEBNsRffNczEdFJIBDxHXEBnLJH6K2B2vQ7LkXwXxp+U/RNyA2Bqvg2KBug8IE2ILccpKS0Cv13GxjY2NQ4/pi+C+RBgQc7IR06jDbNTmXgv4/X5ISUmRhU6XByqVShiqR5zimmrGbIj7gvPNbOGe49KSIta9i8jiJqYKPI8gaw5TU1PgHBvjItZoNKBWZ7Pff5RIxITcjz/HBN9q6eOOuqy0FBQKUT6HEMXcxNSeI36QwozHAyMjv7iIVarMiCgZe4E5IombmAptPys0t3uGizw/Xw+ZGWI62Egj5444Mss0cgiFQkjeyz3lxbFCe4JRp3ETU6G1If6SwuTkFIyPT3AR52i1kJ0tCm0l4haSc0dMyMn8nhR8i5VfaOVlMWt9BmHkJqb2GBFRl9vthtHR35xCU0mF9ooILRFiMtVNrNCCwSDXQKPRAEqlUtxtiD2JEBPrQbwnBUJqsw1zDywoWMu6bYkSEzsqFAYGv0eympxNT09Df/8AW3VClpisB6KSqSKSvig4vRarLLG5N6bPVRSrkyfiRsQnRDpTd5sEEo3GBXa7fdHBdrsjEjE1N+K6rKrphu+me/Ae0xRCNLMRzc0teOxKt95BjPZPXGK60e8gUmnVcQS7Lz4iPpNCIBBYUGhDQzbw+XyCa6KXDNkEUkQzFmtvJWNaxbza1w8ul0tscOFel6x/M839ixNjtMmUJGJrtGqhaGAzGBrJIjfYvS2WzTE5vQNJh3kOCRLpuki+Xa2Ghp3VbNsDhJpVKcIXvTBMg8PhBIfTGSlTCyAuyZ7HGO0q+vHodbFuOxQa86GmcjPbrYspB9kpJ2KyxgrqMCVfnJgKqkuoN+TnwQZjNONUVZSDMl081XYhqiVrbyYFr9cLHo9XzDHkEsBz9amid2JIT0uFxvpasSFDmR7jo71GpNAyEc2BBb7fRNsWJ8ZoySXpjeDvq9+BotLEHuybCkGfmyO4ZEmuMM0/EZ2M/wwxyHO9vSyIRperhfW4rv7A7Dzsra8ByZgCxj9Lkws5yU7HS05J5NGG0ZLL98gSnysm+kgTpvQITTqd8R5tKwYCWUk0C+mWSKyjwuoXzg3EV+nattRtm/d2qqVTPLSMRxpJIu8Qs5QwLDfgnwADACkVQRcKjgmmAAAAAElFTkSuQmCC');
   }
   .header-link {
@@ -31,11 +31,12 @@ header {
     color: #ffffff;
     background-color: #f3781e;
     font-size: 13px;
-    line-height: 36px;
+    font-weight: 700;
+    line-height: 35px;
     height: 36px;
     width: 170px;
     border-radius: 17px;
-    margin: 12px 60px;
+    margin: 12px 30px;
   }
 }
 
@@ -80,10 +81,13 @@ main {
         padding: 2%;
         line-height: 34px;
         overflow: hidden;
+        .filter-hash-button {
+          vertical-align: top;
+        }
       }
       .offers-count-title {
         float: right;
-        margin: 23px 6%;
+        margin: 23px 3%;
         color: @main-color-1;
         font-size: 13px;
         font-weight: 600;
@@ -92,7 +96,7 @@ main {
   }
   .mCS-accommodations-scroll-theme {
     &.mCSB_scrollTools {
-      width: 0.8%;
+      width: 0.9%;
     }
   }
   .filter-bar {
@@ -105,7 +109,7 @@ main {
     background-color: white;
     .mCS-accommodations-scroll-theme {
       &.mCSB_scrollTools {
-        margin-right: 0.7%;
+        margin-right: 0.5%;
       }
     }
   }

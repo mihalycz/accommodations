@@ -1,15 +1,16 @@
+@import '../../styles/main';
+
 div[data-component=amenities_buttons_filter] {
   display: inline-block;
   .filter-hash-button {
     position: relative;
     display: inline-block;
     line-height: 24px;
-    box-shadow: 0 1px 18px 3px rgba(0, 0, 0, 0.07);
-    border-radius: 4px;
+    .box-shadow(@box-shadow-2);
+    .rounded(@radius: 4px);
     border: 1px solid #e1e6e8;
     color: #28373e;
-    font-size: 13px;
-    font-weight: 400;
+    .amenities-font (13px);
     padding: 0 12px;
     .filter-hash-button-title {
       display: inline-block;

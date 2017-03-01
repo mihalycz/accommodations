@@ -4,16 +4,14 @@ header {
   .base-settings;
   width: 100%;
   position:absolute;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  .box-shadow(0 2px 4px rgba(0, 0, 0, 0.07));
   line-height: 57px;
   z-index: 100;
   background-color: white;
   .header-title {
     float: left;
     color: @main-color-2;
-    font-size: 35px;
-    font-weight: 800;
-    letter-spacing: 1.7px;
+    .amenities-font (35px, 800, 1.7px);
     margin-left: 27.5px;
   }
   .header-title-logo {
@@ -30,12 +28,11 @@ header {
     text-decoration: none;
     color: #ffffff;
     background-color: #f3781e;
-    font-size: 13px;
-    font-weight: 700;
+    .amenities-font (13px, 700);
     line-height: 35px;
     height: 36px;
     width: 170px;
-    border-radius: 17px;
+    .rounded(@radius: 17px);
     margin: 12px 30px;
   }
 }
@@ -54,7 +51,7 @@ main {
     position: absolute;
     right: 0;
     top: @header-height;
-    box-shadow: @box-shadow;
+    .box-shadow(@box-shadow);
     .result-type-tab {
       .result-type-tab-item {
         width: 50%;
@@ -64,12 +61,11 @@ main {
         color: @main-color-2;
         background-color: #f7f9fa;
         text-align: center;
-        font-size: 14px;
-        font-weight: 700;
+        .amenities-font (14px, 700);
         cursor: pointer;
       }
       .result-type-tab-item.selected {
-        opacity: 0.7;
+        .opacity(0.7);
         background-color: white;
       }
     }
@@ -89,8 +85,7 @@ main {
         float: right;
         margin: 23px 3%;
         color: @main-color-1;
-        font-size: 13px;
-        font-weight: 600;
+        .amenities-font (13px, 600);
       }
     }
   }
@@ -104,7 +99,7 @@ main {
     left: 0;
     top: @header-height;
     padding-top: 30px;
-    box-shadow: @box-shadow;
+    .box-shadow(@box-shadow);
     z-index: 90;
     background-color: white;
     .mCS-accommodations-scroll-theme {

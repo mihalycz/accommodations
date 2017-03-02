@@ -4,6 +4,7 @@ Accomodations test module
 ```sh
 npm i
 ```
+Set the **googleApiKey** property in the congiguration file (/src/config.js).
 
 **dev:**
 

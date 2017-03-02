@@ -1,5 +1,5 @@
 # accommodations
-Accomodations test module 
+Accomodations test desktop-tablet SPA.  
 
 ```sh
 npm i

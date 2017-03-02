@@ -1,5 +1,7 @@
 import _ from 'lodash';
 import $ from 'jquery';
+import Promise from 'es6-promise';
+import store from '../../stores/index';
 
 export default class BaseComponent {
     constructor () {
@@ -76,6 +78,19 @@ export default class BaseComponent {
         return $element;
     }
 
+    setHeightByParent ($item, $parent) {
+        return new Promise((resolve, reject) => {
+            if ($item && $item.length && $parent && $parent.length) {
+                let height = parseInt($parent.height(), 10);
+                if (!isNaN(height)) {
+                    $item.height(height);
+                    resolve(height);
+                }
+            }
+            reject(false);
+        });
+    }
+
     setDependentHeight ($item, $dependentItem = $item, correction) {
         if ($item && $item.length && $dependentItem && $dependentItem.length) {
             let width = parseInt($item.width());
@@ -93,6 +108,38 @@ export default class BaseComponent {
             let height = parseInt($item.height());
             if (!isNaN(height)) {
                 $dependentItem.css('top', height + (isNaN(correction) ? 0 : correction));
+            }
+        }
+    }
+
+    setAccommodations (accommodations) {
+        function getIds (list) {
+            return _.join(_.sortBy(_.map(list, (item) => {
+                return _.get(item, 'id');
+            })), ',');
+        }
+        let currentAccommodationsIds = getIds(_.get(this.viewModel, 'accommodations'));
+        let newAccommodationsIds = getIds(accommodations);
+        let isSameResult = currentAccommodationsIds === newAccommodationsIds;
+        if (!isSameResult) {
+            _.set(this.viewModel, 'accommodations', accommodations);
+        }
+        return isSameResult;
+    }
+
+    refreshResult (currentResultType) {
+        let $component = this.getComponentContainer();
+        let state = store.getState();
+        let typeId = _.get(state, 'accommodationsFilter.resultType');
+        if (typeId && typeId === currentResultType) {
+            let isSameResult = this.setAccommodations (_.get(state, 'accommodationsFilter.filteredAccommodations', []));
+            if (!isSameResult) {
+                this.render();
+            }
+            $component.show();
+        } else {
+            if ($component.length) {
+                $component.hide();
             }
         }
     }

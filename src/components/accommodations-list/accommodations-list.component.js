@@ -32,34 +32,7 @@ export default class AccommodationsList extends BaseComponent{
     }
 
     onStoreChange () {
-        let $component = this.getComponentContainer();
-        let state = store.getState();
-        let typeId = _.get(state, 'accommodationsFilter.resultType');
-        if (typeId && typeId === LIST_RESULT_TYPE) {
-            let isSameResult = this.setAccommodations (_.get(state, 'accommodationsFilter.filteredAccommodations', []));
-            if (!isSameResult) {
-                this.render();
-            }
-            $component.show();
-        } else {
-            if ($component.length) {
-                $component.hide();
-            }
-        }
-    }
-
-    setAccommodations (accommodations) {
-        function getIds (list) {
-            return _.join(_.sortBy(_.map(list, (item) => {
-                return _.get(item, 'id');
-            })), ',');
-        }
-        let currentAccommodationsIds = getIds(_.get(this.viewModel, 'accommodations'));
-        let newAccommodationsIds = getIds(accommodations);
-        let isSameResult = currentAccommodationsIds === newAccommodationsIds;
-        if (!isSameResult) {
-            _.set(this.viewModel, 'accommodations', accommodations);
-        }
-        return isSameResult;
+        this.refreshResult (LIST_RESULT_TYPE);
+        this.onWindowResize();
     }
 }

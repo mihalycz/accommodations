@@ -1,9 +1,10 @@
 # accommodations
-Accomodations test module 
+Accomodations test desktop-tablet SPA.  
 
 ```sh
 npm i
 ```
+Set the **googleApiKey** property in the congiguration file (/src/config.js).
 
 **dev:**
 

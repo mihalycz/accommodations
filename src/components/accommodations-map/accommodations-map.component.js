@@ -40,7 +40,9 @@ export default class AccommodationsMap extends BaseComponent{
         let maps = _.get(window, 'google.maps');
         if (maps) {
              this.map = new maps.Map(document.getElementById('map'), {
-                styles: config.mapStyles
+                 styles: config.mapStyles,
+                 center: new google.maps.LatLng('41.394479', '2.163797'),
+                 zoom: 17
             });
             this.setMarkers();
         }
